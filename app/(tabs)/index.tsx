@@ -1,98 +1,197 @@
-import { Image } from 'expo-image';
-import { Platform, StyleSheet } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { router } from 'expo-router';
+import React from 'react';
+import {
+  Image,
+  TouchableOpacity,
+  StyleSheet,
+  View,
+  Text,
+  ImageBackground,
+} from 'react-native';
 
-import { HelloWave } from '@/components/hello-wave';
-import ParallaxScrollView from '@/components/parallax-scroll-view';
-import { ThemedText } from '@/components/themed-text';
-import { ThemedView } from '@/components/themed-view';
-import { Link } from 'expo-router';
+const Stack = createNativeStackNavigator();
 
-export default function HomeScreen() {
+function App(): React.JSX.Element {
   return (
-    <ParallaxScrollView
-      headerBackgroundColor={{ light: '#A1CEDC', dark: '#1D3D47' }}
-      headerImage={
+    
+    <ImageBackground
+      source={require('@/assets/images/backgroungImage1.png')} 
+      style={styles.background}
+      resizeMode="cover"
+    >
+      <View style={styles.header}>
+        <Text style={styles.text}>Manual Header</Text>
         <Image
-          source={require('@/assets/images/partial-react-logo.png')}
-          style={styles.reactLogo}
-        />
-      }>
-      <ThemedView style={styles.titleContainer}>
-        <ThemedText type="title">Welcome!</ThemedText>
-        <HelloWave />
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 1: Try it</ThemedText>
-        <ThemedText>
-          Edit <ThemedText type="defaultSemiBold">app/(tabs)/index.tsx</ThemedText> to see changes.
-          Press{' '}
-          <ThemedText type="defaultSemiBold">
-            {Platform.select({
-              ios: 'cmd + d',
-              android: 'cmd + m',
-              web: 'F12',
-            })}
-          </ThemedText>{' '}
-          to open developer tools.
-        </ThemedText>
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <Link href="/modal">
-          <Link.Trigger>
-            <ThemedText type="subtitle">Step 2: Explore</ThemedText>
-          </Link.Trigger>
-          <Link.Preview />
-          <Link.Menu>
-            <Link.MenuAction title="Action" icon="cube" onPress={() => alert('Action pressed')} />
-            <Link.MenuAction
-              title="Share"
-              icon="square.and.arrow.up"
-              onPress={() => alert('Share pressed')}
-            />
-            <Link.Menu title="More" icon="ellipsis">
-              <Link.MenuAction
-                title="Delete"
-                icon="trash"
-                destructive
-                onPress={() => alert('Delete pressed')}
-              />
-            </Link.Menu>
-          </Link.Menu>
-        </Link>
+            source={require('@/assets/images/icon5.png')} 
+            style={styles.headerImage1}
+          />
+          <Image
+            source={require('@/assets/images/headericon3.png')} 
+            style={styles.headerImage2}
+          />
+          <Image
+            source={require('@/assets/images/headericon2.png')} 
+            style={styles.headerImage3}
+          />
 
-        <ThemedText>
-          {`Tap the Explore tab to learn more about what's included in this starter app.`}
-        </ThemedText>
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 3: Get a fresh start</ThemedText>
-        <ThemedText>
-          {`When you're ready, run `}
-          <ThemedText type="defaultSemiBold">npm run reset-project</ThemedText> to get a fresh{' '}
-          <ThemedText type="defaultSemiBold">app</ThemedText> directory. This will move the current{' '}
-          <ThemedText type="defaultSemiBold">app</ThemedText> to{' '}
-          <ThemedText type="defaultSemiBold">app-example</ThemedText>.
-        </ThemedText>
-      </ThemedView>
-    </ParallaxScrollView>
+      </View>
+      <View style={styles.container}>
+
+        {/* FIRST BOX */}
+        <View style={[styles.first_box, { backgroundColor: 'rgba(45, 79, 53, 0.4)' }]}>
+          <Image
+            source={require('@/assets/images/icon2.png')} 
+            style={styles.boxImage}
+          />
+          <TouchableOpacity onPress={() => router.push('/(tabs)/camera_feed1')}>
+            <Text style={styles.text}>Robot Manipulation</Text>
+          </TouchableOpacity>
+        </View>
+
+        {/* SECOND BOX */}
+        <View style={[styles.second_box, { backgroundColor: 'rgba(45, 79, 53, 0.4)' }]}>
+          <Image
+            source={require('@/assets/images/icon1.png')} 
+            style={styles.boxImage}
+          />
+          <TouchableOpacity>
+            <Text style={styles.text}>Live Footage</Text>
+          </TouchableOpacity>
+        </View>
+
+        {/* THIRD BOX */}
+        <View style={[styles.third_box, { backgroundColor: 'rgba(45, 79, 53, 0.4)' }]}>
+          <Image
+            source={require('@/assets/images/icon5.png')} 
+            style={styles.boxImage}
+          />
+          <TouchableOpacity>
+            <Text style={styles.text}>Profile</Text>
+          </TouchableOpacity>
+        </View>
+
+        {/* FOURTH BOX */}
+        <View style={[styles.fourth_box, { backgroundColor: 'rgba(45, 79, 53, 0.4)' }]}>
+          <Image
+            source={require('@/assets/images/icon4.png')} 
+            style={styles.boxImage}
+          />
+          <TouchableOpacity>
+            <Text style={styles.text}>Setting</Text>
+          </TouchableOpacity>
+        </View>
+
+        {/* FIFTH BOX */}
+        <View style={[styles.fifth_box, { backgroundColor: 'rgba(45, 79, 53, 0.4)' }]}>
+          <Image
+            source={require('@/assets/images/icon6.png')} 
+
+            style={styles.boxImage}
+          />
+          <TouchableOpacity>
+            <Text style={styles.text}>Chilly Count & Report</Text>
+          </TouchableOpacity>
+        </View>
+
+      </View>
+    </ImageBackground>
   );
 }
 
 const styles = StyleSheet.create({
-  titleContainer: {
-    flexDirection: 'row',
+  container: {
+    flex: 1,
+    padding: 20,
+    justifyContent: 'space-evenly',
     alignItems: 'center',
-    gap: 8,
   },
-  stepContainer: {
-    gap: 8,
-    marginBottom: 8,
+  header:{
+    height:110,
+    backgroundColor:'white',
+
+
   },
-  reactLogo: {
-    height: 178,
-    width: 290,
-    bottom: 0,
-    left: 0,
-    position: 'absolute',
+  headerImage1:{
+    marginLeft:280,
+    marginTop:73,
+    width:40,
+    height:40,
+  },
+  headerImage2:{
+    marginLeft:340,
+    marginTop:-40,
+    width:40,
+    height:40,
+
+  },
+  headerImage3:{
+    marginLeft:15,
+    marginTop:-40,
+    width:40,
+    height:40,
+
+  },
+ 
+
+  text: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    textAlign: 'left',
+    marginLeft:110,
+    marginTop:-54,
+    
+    
+  },
+
+  boxImage: {
+    width: 60,
+    height: 60,
+    marginBottom: 5,
+    marginTop:12,
+    marginRight:200,
+    resizeMode: 'contain',
+    marginLeft:30,
+  },
+
+  first_box: {
+    borderRadius: 20,
+    width: 350,
+    height: 100,
+    padding: 5,
+    
+  },
+  second_box: {
+    width: 350,
+    height: 100,
+    padding: 5,
+    borderRadius: 20,
+  },
+  third_box: {
+    width: 350,
+    height: 100,
+    padding: 5,
+    borderRadius: 20,
+  },
+  fourth_box: {
+    width: 350,
+    height: 100,
+    padding: 5,
+    borderRadius: 20,
+  },
+  fifth_box: {
+    width: 350,
+    height: 100,
+    padding: 6,
+    borderRadius: 20,
+  },
+
+  background: {
+    flex: 1,
+    width: '100%',
+    height: '100%',
   },
 });
+
+export default App;
