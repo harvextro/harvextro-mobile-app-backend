@@ -1,17 +1,16 @@
 import React from "react";
 import {
-  View,
-  Text,
-  StyleSheet,
-  TouchableOpacity,
   Image,
   SafeAreaView,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
 } from "react-native";
 
 export default function GoogleRegisterScreen() {
   return (
     <SafeAreaView style={styles.container}>
-      
       {/* Header */}
       <View style={styles.header}>
         <Image
