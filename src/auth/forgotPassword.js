@@ -1,5 +1,6 @@
 import { auth } from "../firebase";
 
+// Firebase function to send password reset email
 export const sendResetEmail = async (email) => {
   try {
     await sendPasswordResetEmail(auth, email);
@@ -10,3 +11,10 @@ export const sendResetEmail = async (email) => {
     throw error;
   }
 };
+
+// Helper function to validate password strength
+const isPasswordValid = (password) => {
+  const regex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
+  return regex.test(password);
+};
+
