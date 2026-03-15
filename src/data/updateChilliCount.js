@@ -13,13 +13,13 @@ export const updateChilliCount = async (type) => {
 
     transaction.update(ref, {
 
-      [type]: (data[type]) + 1,
-      total: (data.total) + 1
+      [type]: (data[type] || 0) + 1,
+      total: (data.total || 0) + 1
 
     });
 
   });
 
   console.log("Updated chilli:", type);
-  
+
 };
