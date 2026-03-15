@@ -1,0 +1,52 @@
+{
+  "project_info": {
+
+    "project_number": "917353807774",
+
+    "project_id": "harvextro-a7976",
+
+    "storage_bucket": "harvextro-a7976.firebasestorage.app"
+  },
+
+
+  "client": [
+    {
+      "client_info": {
+
+        "mobilesdk_app_id": "1:917353807774:android:e79c13134e0dd69f36208f",
+
+        "android_client_info": {
+
+          "package_name": "com.harvextro.app"
+
+        }
+
+      },
+
+      "oauth_client": [],
+
+      "api_key": [
+
+        {
+          "current_key": "AIzaSyAnjd_XmpmNHX-EzKOMZPIX6ykL09kqAnM"
+        }
+
+      ],
+
+      "services": {
+
+        "appinvite_service": {
+
+          "other_platform_oauth_client": []
+
+        }
+
+      }
+
+    }
+
+  ],
+
+  "configuration_version": "1"
+  
+}
