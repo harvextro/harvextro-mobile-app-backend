@@ -18,4 +18,54 @@ export const registerUser = async (
   password,
   confirmPassword,
   role = "farmer"
-)
+) => 
+  {
+  try {
+    // Check if passwords match
+    if (password !== confirmPassword) {
+      throw new Error("Passwords do not match.");
+     }
+
+    
+    // Check password strength
+    if (!isPasswordValid(password)) {
+      throw new Error(
+        "Password must be at least 8 characters long and include letters and numbers."
+      );
+    }
+
+
+    // Create user
+    const userCredential = await auth().createUserWithEmailAndPassword(
+      email,
+      password
+    );
+
+
+    const user = userCredential.user;
+
+
+    // Save user data in Firestore
+    await firestore()
+      .collection("users")
+      .doc(user.uid)
+      .set({
+        username: username,
+        email: user.email,
+        role: role,
+        createdAt: firestore.FieldValue.serverTimestamp(),
+      });
+
+
+    console.log("User registered successfully!");
+
+
+    return user;
+
+
+  } catch (error) {
+    console.error("Registration error:", error.message);
+    throw error;
+  }
+};
+
