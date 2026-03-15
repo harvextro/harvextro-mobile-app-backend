@@ -48,5 +48,5 @@
     "typescript": "~5.9.2"
   },
   "private": true,
-  "contribution_note": "Commit by Nipuni Senarathne"
+  "note": "Commit by Nipuni Senarathne"
 }
