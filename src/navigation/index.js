@@ -5,7 +5,7 @@ import { NavigationContainer } from "@react-navigation/native";
 // createStackNavigator creates a stack-based navigation (like pages on top of each other)
 import { createStackNavigator } from "@react-navigation/stack";
 
-// Import the screens that will be part of navigation
+// Import the screens that will be part of navigation (from FE)
 import LoginScreen from "../screens/LoginScreen";
 import RegisterScreen from "../screens/RegisterScreen";
 import HomeScreen from "../screens/HomeScreen";
@@ -33,6 +33,6 @@ export default function Navigation() {
       </Stack.Navigator>
 
     </NavigationContainer>
-    
+
   );
 }
