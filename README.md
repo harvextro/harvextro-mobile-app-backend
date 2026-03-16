@@ -19,13 +19,14 @@ The backend is responsible for:
 
 ## Project Structure
 
-src/
+src/..
 
- auth          # Authentication logic (login, register, logout)
- robot         # Robot control commands (start, stop, pause)
- data          # Chilli data processing and summary
- navigation    # App navigation system
- utils         # Helper functions
- firebase.js   # Firebase configuration
+-> auth          # Authentication logic (login, register, logout)
+-> robot         # Robot control commands (start, stop, pause)
+-> data          # Chilli data processing and summary
+-> navigation    # App navigation system
+-> utils         # Helper functions
+-> firebase.js   # Firebase configuration
+
 
 
