@@ -102,6 +102,13 @@ app.get("/api/session-report/:id", async (req, res) => {
   res.json(session);
 });
 
+//API 6: get activity logs
+app.get("/api/activity-logs", async (req, res) => {
+  const logs = await ActivityLog.find();
+
+  res.json(logs);
+});
+
 // Server start
 app.listen(5000, () => {
   console.log("Server running on port 5000");
