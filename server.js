@@ -68,6 +68,40 @@ app.post("/api/end-session", async (req, res) => {
   res.json(session);
 });
 
+//API 4: Get daily summery
+app.get("/api/daily-summary", async (req, res) => {
+  const today = new Date().toISOString().slice(0, 10);
+
+  const sessions = await Session.find({
+    start_time: {
+      $gte: new Date(today),
+    },
+  });
+
+  let red = 0;
+  let yellow = 0;
+  let green = 0;
+
+  sessions.forEach((s) => {
+    red += s.red_count;
+    yellow += s.yellow_count;
+    green += s.green_count;
+  });
+
+  res.json({
+    red,
+    yellow,
+    green,
+  });
+});
+
+//API 5: get session report
+app.get("/api/session-report/:id", async (req, res) => {
+  const session = await Session.findById(req.params.id);
+
+  res.json(session);
+});
+
 // Server start
 app.listen(5000, () => {
   console.log("Server running on port 5000");
