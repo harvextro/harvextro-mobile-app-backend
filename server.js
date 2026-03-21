@@ -50,6 +50,24 @@ app.post("/api/add-chilli", async (req, res) => {
   res.json({ message: "Updated successfully" });
 });
 
+//API : End Session
+app.post("/api/end-session", async (req, res) => {
+  const { session_id } = req.body;
+
+  const session = await Session.findById(session_id);
+
+  session.end_time = new Date();
+
+  await session.save();
+
+  await ActivityLog.create({
+    event: "Robot stopped",
+    timestamp: new Date(),
+  });
+
+  res.json(session);
+});
+
 // Server start
 app.listen(5000, () => {
   console.log("Server running on port 5000");
