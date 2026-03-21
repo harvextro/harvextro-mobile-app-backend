@@ -13,7 +13,7 @@ app.use(express.json());
 
 mongoose.connect("mongodb://127.0.0.1:27017/chilli_robot");
 
-// ✅ API 1: Start Session
+//  API 1: Start Session
 app.post("/api/start-session", async (req, res) => {
   try {
     const session = new Session({
@@ -33,6 +33,21 @@ app.post("/api/start-session", async (req, res) => {
       message: "Error starting session",
     });
   }
+});
+
+//API 2: Add chilli detection data
+app.post("/api/add-chilli", async (req, res) => {
+  const { color, session_id } = req.body;
+
+  const session = await Session.findById(session_id);
+
+  if (color === "red") session.red_count++;
+  if (color === "yellow") session.yellow_count++;
+  if (color === "green") session.green_count++;
+
+  await session.save();
+
+  res.json({ message: "Updated successfully" });
 });
 
 // Server start
