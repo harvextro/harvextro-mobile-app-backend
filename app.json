@@ -1,29 +1,20 @@
 {
-<<<<<<< HEAD
-  "name": "backend",
-  "version": "1.0.0",
-  "description": "",
-  "main": "server.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "type": "commonjs",
-  "dependencies": {
-    "cors": "^2.8.6",
-    "express": "^5.2.1",
-    "mongoose": "^9.3.1"
-=======
   "expo": {
+<<<<<<< HEAD
     "name": "MyApp",
     "slug": "MyApp",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
     "scheme": "myapp",
+=======
+    "name": "my-new-app",
+    "slug": "my-new-app",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/images/icon.png",
+    "scheme": "mynewapp",
+>>>>>>> 5b90ce21fc5875f4e9fd64f103faebaadd4c5837
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "ios": {
@@ -56,13 +47,16 @@
             "backgroundColor": "#000000"
           }
         }
+<<<<<<< HEAD
       ],
       "expo-font"
+=======
+      ]
+>>>>>>> 5b90ce21fc5875f4e9fd64f103faebaadd4c5837
     ],
     "experiments": {
       "typedRoutes": true,
       "reactCompiler": true
     }
->>>>>>> 1b8b61751a9a6cbe6264caf1067c33321b4cc05a
   }
 }
